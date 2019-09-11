@@ -16,6 +16,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import register.model.MemberBean;
+import review.model.reviewBean;
 
 @Entity
 @Table(name = "cOrder")
@@ -34,6 +35,16 @@ public class orderBean implements Serializable {
 	private String oNote;
 	@OneToMany(mappedBy = "orderBean", cascade = CascadeType.ALL)
 	Set<orderItemBean> itemSet = new LinkedHashSet<>();
+//	Set<reviewBean> reviewSet = new LinkedHashSet<>();  
+//	public Set<reviewBean> getReviewSet() {
+//		return reviewSet;
+//	}
+//
+//	public void setReviewSet(Set<reviewBean> reviewSet) {
+//		this.reviewSet = reviewSet;
+//	}
+
+
 
 	public Set<orderItemBean> getItemSet() {
 		return itemSet;

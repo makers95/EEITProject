@@ -15,6 +15,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import cart.model.orderBean;
+
 @Entity
 @Table(name = "review")
 public class reviewBean implements Serializable {
@@ -28,10 +30,17 @@ public class reviewBean implements Serializable {
 	private java.sql.Timestamp rTimestamp;
 	private Integer rRating;
 	
-//@ManyToOne(cascade=CascadeType.ALL)
-//	Set<reviewBean> reviewSet = new LinkedHashSet<>();
+	@ManyToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name = "FK_orderNo")
+	private orderBean orderBean;
 
-	
+	public orderBean getOrderBean() {
+		return orderBean;
+	}
+
+	public void setOrderBean(orderBean orderBean) {
+		this.orderBean = orderBean;
+	}
 	
 	public Integer getrId() {
 		return rId;
